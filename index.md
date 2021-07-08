@@ -1,5 +1,9 @@
 ## Welcome to GitHub Pages
 
+[blueland测试链接](https://www.blueland.fordstore.com.cn/appdownload/?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com)
+
+[Github测试链接](https://byang56.github.io/appdownload/?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com)
+
 You can use the [editor on GitHub](https://github.com/byang56-ford/byang56.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
