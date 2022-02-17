@@ -183,6 +183,39 @@
         function ios() {
             window.location.href = universal_link + "?schema=" + encodeURIComponent(download_schema);
         } 
+
+        function getStrings(String jo) {
+                console.log(jo);
+            }
+            //增加缓存String数据接口saveString
+            // 增加读取缓存String数据接口getString
+            function saveString() {
+                if (window.EVWebviewChannel) {
+                    EVWebviewChannel.postMessage(JSON.stringify(
+                        {
+                            "function": "saveString",
+                            "params": {
+                                "key": "aaaaaa",
+                                "value": "中国"
+                            }
+                ));
+                }
+            }
+
+            function readString() {
+                if (window.EVWebviewChannel) {
+                    EVWebviewChannel.postMessage(JSON.stringify(
+                        {
+                            "function": "getString",
+                            "params": {
+                                "key": "aaaaaa",
+                                "callBackFunctionName": "getStrings"
+                            }
+                ));
+                }
+            }
+           
+
         </script>
         <style>*,body,html,div,p,img,button,a{border:0;margin:0;padding:0;} </style>
 </head>
@@ -283,7 +316,9 @@ accept="text/html"
 </br>
 <input type="file" accept="text/html" />
 </br>
-     
+<a onclick="saveString()">保存String</a>	
+</br>
+<a onclick="readString()">读取String</a>   
 </body>
 
 </html>
