@@ -89,7 +89,21 @@
 
         function reloadHtml() {
             console.log("reloadHtml1");
+            location.reload();
+            console.log("reloadHtml2");
+            //alert("调用下载失败"); //此处弹窗时，是没有version参数，如果在app中打开，是会有这个参数的
+        }
+
+        function reloadHtml2() {
+            console.log("reloadHtml2");
             window.location.reload();
+            console.log("reloadHtml2");
+            //alert("调用下载失败"); //此处弹窗时，是没有version参数，如果在app中打开，是会有这个参数的
+        }
+
+        function reloadHtml3() {
+            console.log("reloadHtml2");
+            window.location.reload(true);
             console.log("reloadHtml2");
             //alert("调用下载失败"); //此处弹窗时，是没有version参数，如果在app中打开，是会有这个参数的
         }
@@ -277,10 +291,22 @@
     <a onclick="openApp3()">点击唤醒app-生产地址</a>
     </br>
 
-    </br>
+    <br/>
+    //location.reload();
+    <br/>
     <a onclick="reloadHtml()">点击唤醒reload</a>
-    </br>
-
+    <br/>
+    <br/>
+    // window.location.reload();
+    <br/>
+    <a onclick="reloadHtml2()">点击唤醒reload2</a>
+    <br/>
+    <br/>
+    // window.location.reload(true);
+    <br/>
+    <a onclick="reloadHtml3()">点击唤醒reload3</a>
+    <br/>
+    <br/>
     <p>evapp</p>
     普通A标签方式打开：
     </br>
