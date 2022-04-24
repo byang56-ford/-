@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <title>deeplink</title>
     <script>
-        var applink1 = 'https://ody-common-eastchina2.oss-cn-shanghai.aliyuncs.com/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com'; 
-        var applink2 = 'https://dsl.apps.pp01.cneast.cf.ford.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com'; 
-        var applink3 = 'https://www.blueland.fordstore.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com'; 
-        var deeplink1 = 'evapp://ody-common-eastchina2.oss-cn-shanghai.aliyuncs.com/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com'; 
-        var deeplink2 = 'evapp://dsl.apps.pp01.cneast.cf.ford.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com'; 
-        var deeplink3 = 'evapp://www.blueland.fordstore.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com'; 
-     
+        var applink1 = 'https://ody-common-eastchina2.oss-cn-shanghai.aliyuncs.com/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com';
+        var applink2 = 'https://dsl.apps.pp01.cneast.cf.ford.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com';
+        var applink3 = 'https://www.blueland.fordstore.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com';
+        var deeplink1 = 'evapp://ody-common-eastchina2.oss-cn-shanghai.aliyuncs.com/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com';
+        var deeplink2 = 'evapp://dsl.apps.pp01.cneast.cf.ford.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com';
+        var deeplink3 = 'evapp://www.blueland.fordstore.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com';
+
         var universal_link = 'ios下载地址';//ios下载地址
         var getVersionUrl = 'https://a.app.qq.com/o/simple.jsp?pkgname=com.ford.fordpasscn';//Android移动端下载地址
         var u = navigator.userAgent.toLocaleLowerCase();
@@ -21,7 +21,7 @@
         var isAndroid = true;
         // var isiOS = !! u.match(/(iphone|ipod|ipad|mac)/i);
         var isiOS = false;
-         
+
         function openApp1() {
             //alert('1');
             //alert(isAndroid);
@@ -34,7 +34,7 @@
             }
             //alert("调用下载失败"); //此处弹窗时，是没有version参数，如果在app中打开，是会有这个参数的
         }
-         
+
         function android1() {
             //如果是微信,直接下载
             if (isWeixin) {
@@ -60,7 +60,7 @@
             }
             //alert("调用下载失败"); //此处弹窗时，是没有version参数，如果在app中打开，是会有这个参数的
         }
-         
+
         function android2() {
             //如果是微信,直接下载
             if (isWeixin) {
@@ -86,12 +86,14 @@
             }
             //alert("调用下载失败"); //此处弹窗时，是没有version参数，如果在app中打开，是会有这个参数的
         }
-        
-          function reloadHtml() {
-           window.location.reload();
+
+        function reloadHtml() {
+            console.log("reloadHtml1");
+            window.location.reload();
+            console.log("reloadHtml2");
             //alert("调用下载失败"); //此处弹窗时，是没有version参数，如果在app中打开，是会有这个参数的
         }
-         
+
         function android3() {
             //如果是微信,直接下载
             if (isWeixin) {
@@ -106,7 +108,7 @@
         }
 
 
-             
+
         function deepApp1() {
             //alert('1');
             //alert(isAndroid);
@@ -119,7 +121,7 @@
             }
             //alert("调用下载失败"); //此处弹窗时，是没有version参数，如果在app中打开，是会有这个参数的
         }
-         
+
         function android11() {
             //如果是微信,直接下载
             if (isWeixin) {
@@ -145,7 +147,7 @@
             }
             //alert("调用下载失败"); //此处弹窗时，是没有version参数，如果在app中打开，是会有这个参数的
         }
-         
+
         function android22() {
             //如果是微信,直接下载
             if (isWeixin) {
@@ -171,7 +173,7 @@
             }
             //alert("调用下载失败"); //此处弹窗时，是没有version参数，如果在app中打开，是会有这个参数的
         }
-         
+
         function android33() {
             //如果是微信,直接下载
             if (isWeixin) {
@@ -184,50 +186,65 @@
                 }, 100);
             }
         }
-         
+
         function ios() {
             window.location.href = universal_link + "?schema=" + encodeURIComponent(download_schema);
-        } 
+        }
 
-        function getStrings(joaa){
-                console.log(joaa);
-            }
-            //增加缓存String数据接口saveString
-            // 增加读取缓存String数据接口getString
-            function saveString() {
-                if (window.EVWebviewChannel) {
-                    EVWebviewChannel.postMessage(JSON.stringify(
-                        {
-                            "function": "saveString",
-                            "params": {
-                                "key": "aaaaaa",
-                                "value": "中国"
-                            }
+        function getStrings(joaa) {
+            console.log(joaa);
+        }
+        //增加缓存String数据接口saveString
+        // 增加读取缓存String数据接口getString
+        function saveString() {
+            if (window.EVWebviewChannel) {
+                EVWebviewChannel.postMessage(JSON.stringify(
+                    {
+                        "function": "saveString",
+                        "params": {
+                            "key": "aaaaaa",
+                            "value": "中国"
+                        }
+                    }
                 ));
-                }
             }
+        }
 
-            function readString() {
-                if (window.EVWebviewChannel) {
-                    EVWebviewChannel.postMessage(JSON.stringify(
-                        {
-                            "function": "getString",
-                            "params": {
-                                "key": "aaaaaa",
-                                "callBackFunctionName": "getStrings"
-                            }
+        function readString() {
+            if (window.EVWebviewChannel) {
+                EVWebviewChannel.postMessage(JSON.stringify(
+                    {
+                        "function": "getString",
+                        "params": {
+                            "key": "aaaaaa",
+                            "callBackFunctionName": "getStrings"
+                        }
+                    }
                 ));
-                }
             }
-           
+        }
 
-        </script>
-        <style>*,body,html,div,p,img,button,a{border:0;margin:0;padding:0;} </style>
+
+    </script>
+    <style>
+        *,
+        body,
+        html,
+        div,
+        p,
+        img,
+        button,
+        a {
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 
 <body style="margin:0;padding:0;">
     <p>Https</p>
-   <button
+    <button
         onclick="window.location.href ='https://dsl.apps.pp01.cneast.cf.ford.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com'">测试地址</button>
     <button
         onclick="window.location.href ='https://www.blueland.fordstore.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com'">生产地址</button>
@@ -235,7 +252,7 @@
     </br>
     普通A标签方式打开：
     </br>
-     <a
+    <a
         href="https://dsl.apps.pp01.cneast.cf.ford.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com">测试地址</a>
     <a
         href="https://www.blueland.fordstore.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com">生产地址</a>
@@ -243,29 +260,29 @@
     </br>
     _blank A标签方式打开：
     </br>
-    <a
-        href="https://ody-common-eastchina2.oss-cn-shanghai.aliyuncs.com/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com" target="_blank">Aliyun测试地址</a>
-    <a
-        href="https://dsl.apps.pp01.cneast.cf.ford.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com" target="_blank">测试地址</a>
-    <a
-        href="evapp://dsl.apps.pp01.cneast.cf.ford.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https%3A%2F%2Ffordev-portal-tc.nttdatadm.com%2Fevapp-h5%2F%23%2Factivity%2FactivityDetail%3FactivityId%3D216%26source_module%3D%25E6%25B4%25BB%25E5%258A%25A8%25E5%2588%2597%25E8%25A1%25A8%25E9%25A1%25B5" target="_blank">生产地址</a>
-     
-</br>
-JS方式打开链接
-</br>
-<a onclick="openApp1()">点击唤醒app-Aliyun测试地址</a>
-</br>
-<a onclick="openApp2()">点击唤醒app-测试地址</a>	
-</br>
-<a onclick="openApp3()">点击唤醒app-生产地址</a>
-</br>
+    <a href="https://ody-common-eastchina2.oss-cn-shanghai.aliyuncs.com/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com"
+        target="_blank">Aliyun测试地址</a>
+    <a href="https://dsl.apps.pp01.cneast.cf.ford.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com"
+        target="_blank">测试地址</a>
+    <a href="evapp://dsl.apps.pp01.cneast.cf.ford.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https%3A%2F%2Ffordev-portal-tc.nttdatadm.com%2Fevapp-h5%2F%23%2Factivity%2FactivityDetail%3FactivityId%3D216%26source_module%3D%25E6%25B4%25BB%25E5%258A%25A8%25E5%2588%2597%25E8%25A1%25A8%25E9%25A1%25B5"
+        target="_blank">生产地址</a>
 
-</br>
-<a onclick="reloadHtml()">点击唤醒reload</a>
-</br>
-     
-        <p>evapp</p>
-        普通A标签方式打开：
+    </br>
+    JS方式打开链接
+    </br>
+    <a onclick="openApp1()">点击唤醒app-Aliyun测试地址</a>
+    </br>
+    <a onclick="openApp2()">点击唤醒app-测试地址</a>
+    </br>
+    <a onclick="openApp3()">点击唤醒app-生产地址</a>
+    </br>
+
+    </br>
+    <a onclick="reloadHtml()">点击唤醒reload</a>
+    </br>
+
+    <p>evapp</p>
+    普通A标签方式打开：
     </br>
     <a
         href="evapp://dsl.apps.pp01.cneast.cf.ford.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com">测试地址</a>
@@ -273,83 +290,88 @@ JS方式打开链接
         href="evapp://www.blueland.fordstore.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com">生产地址</a>
     </br>
     </br>
-        _blank A标签方式打开：
+    _blank A标签方式打开：
     </br>
-    <a
-        href="evapp://dsl.apps.pp01.cneast.cf.ford.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com" target="_blank">测试地址</a>
-    <a
-        href="evapp://dsl.apps.pp01.cneast.cf.ford.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https%3A%2F%2Ffordev-portal-tc.nttdatadm.com%2Fevapp-h5%2F%23%2Factivity%2FactivityDetail%3FactivityId%3D216%26source_module%3D%25E6%25B4%25BB%25E5%258A%25A8%25E5%2588%2597%25E8%25A1%25A8%25E9%25A1%25B5" target="_blank">生产地址</a>
+    <a href="evapp://dsl.apps.pp01.cneast.cf.ford.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https://www.baidu.com"
+        target="_blank">测试地址</a>
+    <a href="evapp://dsl.apps.pp01.cneast.cf.ford.com.cn/appdownload?cookieName=EVWebviewCookie&tokenType=SCRM&url=https%3A%2F%2Ffordev-portal-tc.nttdatadm.com%2Fevapp-h5%2F%23%2Factivity%2FactivityDetail%3FactivityId%3D216%26source_module%3D%25E6%25B4%25BB%25E5%258A%25A8%25E5%2588%2597%25E8%25A1%25A8%25E9%25A1%25B5"
+        target="_blank">生产地址</a>
     </br>
-        JS方式打开链接
+    JS方式打开链接
     </br>
-        <a onclick="deepApp1()">点击唤醒app-Aliyun测试地址</a>
-        </br>
-        <a onclick="deepApp2()">点击唤醒app-测试地址</a>	
-        </br>
-        <a onclick="deepApp3()">点击唤醒app-生产地址</a>
-        </br>
+    <a onclick="deepApp1()">点击唤醒app-Aliyun测试地址</a>
     </br>
-        _blank A标签方式打开：
-</br>
-accept="video/mp4" capture='user'
-</br>
-<input type="file" id='video' accept="video/mp4" capture='user' />
-</br>
-</br>
-accept="video/mp4"
-</br>
-<input type="file" id='video' accept="video/mp4" /> 
-</br>
-</br>
-accept="video/mp4;image/*"
-<input type="file" id='video' accept="video/mp4;image/*" />
-</br>
-</br>
-accept="video/mp4;image/*"  capture='camera'
-</br>
-<input type="file" id='video' accept="video/mp4;image/*"  capture='camera' />
-</br>
-</br>
-accept="video/mp4" accept="image/"
-</br>
-<input type="file" id='video' accept="video/mp4" accept="image/"/> 
-</br>
-</br>
-accept="image/*" multiple
-</br>
-<input type="file" accept="image/*" multiple />
-</br>
-</br>
-</br>
-accept="text/html"
-</br>
-<input type="file" accept="text/html" />
-</br>
-<input onclick="saveString()">保存String</input>	
-</br>
-<input onclick="readString()">读取String</input>   
-</br>
-</br>
-<a href="http://vfx.mtime.cn/Video/2019/03/18/mp4/190318231014076505.mp4">A标签开的mp4视频</a>  
-</br>
-</br>
-<a href="http://vfx.mtime.cn/Video/2019/03/18/mp4/190318231014076505.mp4" target="_blank">A标签开的mp4视频 - blank</a>   
-</br>
-</br>
-<a href="http://vfx.mtime.cn/Video/2019/03/18/mp4/190318231014076505.mp4" target="_self">_self A标签开的mp4视频 - blank</a>   
-</br>
-</br>
-<a href="https://open.work.weixin.qq.com/wwopenmsg/mpnews/downloadOpenMedia?scorpid=ww77da1165c96dbaef&corp_id=1970325063203448&media_id=ZK0029-EFGxSCWQenmNOSBBdNq8Nc1&file_name=%E7%94%B5%E6%84%9FPONY%E8%BD%A6%E6%A0%87.mp4&media_token=uoyrLcdKIgjDsOW5nsS846I82PzRO97RXQ-PJk2I_vi0UsUZDL2oYqz-ZxV3Gcuz" target="_blank">wX A标签开的mp4视频 </a>   
-</br>
-</br>
-<a href="https://open.work.weixin.qq.com/wwopenmsg/mpnews/downloadOpenMedia?scorpid=ww77da1165c96dbaef&corp_id=1970325063203448&media_id=ZK0029-EFGxSCWQenmNOSBBdNq8Nc1&file_name=%E7%94%B5%E6%84%9FPONY%E8%BD%A6%E6%A0%87.mp4&media_token=uoyrLcdKIgjDsOW5nsS846I82PzRO97RXQ-PJk2I_vi0UsUZDL2oYqz-ZxV3Gcuz" target="_self">_self WX A标签开的mp4视频 </a>
+    <a onclick="deepApp2()">点击唤醒app-测试地址</a>
+    </br>
+    <a onclick="deepApp3()">点击唤醒app-生产地址</a>
+    </br>
+    </br>
+    _blank A标签方式打开：
+    </br>
+    accept="video/mp4" capture='user'
+    </br>
+    <input type="file" id='video' accept="video/mp4" capture='user' />
+    </br>
+    </br>
+    accept="video/mp4"
+    </br>
+    <input type="file" id='video' accept="video/mp4" />
+    </br>
+    </br>
+    accept="video/mp4;image/*"
+    <input type="file" id='video' accept="video/mp4;image/*" />
+    </br>
+    </br>
+    accept="video/mp4;image/*" capture='camera'
+    </br>
+    <input type="file" id='video' accept="video/mp4;image/*" capture='camera' />
+    </br>
+    </br>
+    accept="video/mp4" accept="image/"
+    </br>
+    <input type="file" id='video' accept="video/mp4" accept="image/" />
+    </br>
+    </br>
+    accept="image/*" multiple
+    </br>
+    <input type="file" accept="image/*" multiple />
+    </br>
+    </br>
+    </br>
+    accept="text/html"
+    </br>
+    <input type="file" accept="text/html" />
+    </br>
+    <input onclick="saveString()">保存String</input>
+    </br>
+    <input onclick="readString()">读取String</input>
+    </br>
+    </br>
+    <a href="http://vfx.mtime.cn/Video/2019/03/18/mp4/190318231014076505.mp4">A标签开的mp4视频</a>
+    </br>
+    </br>
+    <a href="http://vfx.mtime.cn/Video/2019/03/18/mp4/190318231014076505.mp4" target="_blank">A标签开的mp4视频 - blank</a>
+    </br>
+    </br>
+    <a href="http://vfx.mtime.cn/Video/2019/03/18/mp4/190318231014076505.mp4" target="_self">_self A标签开的mp4视频 -
+        blank</a>
+    </br>
+    </br>
+    <a href="https://open.work.weixin.qq.com/wwopenmsg/mpnews/downloadOpenMedia?scorpid=ww77da1165c96dbaef&corp_id=1970325063203448&media_id=ZK0029-EFGxSCWQenmNOSBBdNq8Nc1&file_name=%E7%94%B5%E6%84%9FPONY%E8%BD%A6%E6%A0%87.mp4&media_token=uoyrLcdKIgjDsOW5nsS846I82PzRO97RXQ-PJk2I_vi0UsUZDL2oYqz-ZxV3Gcuz"
+        target="_blank">wX A标签开的mp4视频 </a>
+    </br>
+    </br>
+    <a href="https://open.work.weixin.qq.com/wwopenmsg/mpnews/downloadOpenMedia?scorpid=ww77da1165c96dbaef&corp_id=1970325063203448&media_id=ZK0029-EFGxSCWQenmNOSBBdNq8Nc1&file_name=%E7%94%B5%E6%84%9FPONY%E8%BD%A6%E6%A0%87.mp4&media_token=uoyrLcdKIgjDsOW5nsS846I82PzRO97RXQ-PJk2I_vi0UsUZDL2oYqz-ZxV3Gcuz"
+        target="_self">_self WX A标签开的mp4视频 </a>
 
-<br/>
-<br/>
-<a href="https://sz.btfs.mail.ftn.qq.com/ftn_handler/8e7b2cba8d3d9f3f4a3abebe59bb95c48905594dc5245adccbabd427abcac907ec949870fff258a4e904e1c4b9f471497291e7ce7feb647f96a46da6dc4410c2?compressed=0&dtype=1&fname=%E7%94%B5%E6%84%9FPONY%E8%BD%A6%E6%A0%87.mp4"  target="_blank" >_blank QQ A标签开的mp4视频 </a>
-<br/>
-<br/>
-<a href="https://sz.btfs.mail.ftn.qq.com/ftn_handler/8e7b2cba8d3d9f3f4a3abebe59bb95c48905594dc5245adccbabd427abcac907ec949870fff258a4e904e1c4b9f471497291e7ce7feb647f96a46da6dc4410c2?compressed=0&dtype=1&fname=%E7%94%B5%E6%84%9FPONY%E8%BD%A6%E6%A0%87.mp4"  target="_self" >_self QQ A标签开的mp4视频 </a>
+    <br />
+    <br />
+    <a href="https://sz.btfs.mail.ftn.qq.com/ftn_handler/8e7b2cba8d3d9f3f4a3abebe59bb95c48905594dc5245adccbabd427abcac907ec949870fff258a4e904e1c4b9f471497291e7ce7feb647f96a46da6dc4410c2?compressed=0&dtype=1&fname=%E7%94%B5%E6%84%9FPONY%E8%BD%A6%E6%A0%87.mp4"
+        target="_blank">_blank QQ A标签开的mp4视频 </a>
+    <br />
+    <br />
+    <a href="https://sz.btfs.mail.ftn.qq.com/ftn_handler/8e7b2cba8d3d9f3f4a3abebe59bb95c48905594dc5245adccbabd427abcac907ec949870fff258a4e904e1c4b9f471497291e7ce7feb647f96a46da6dc4410c2?compressed=0&dtype=1&fname=%E7%94%B5%E6%84%9FPONY%E8%BD%A6%E6%A0%87.mp4"
+        target="_self">_self QQ A标签开的mp4视频 </a>
 </body>
 
 </html>
