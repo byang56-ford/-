@@ -245,19 +245,6 @@
           );
         }
       }
-      var file = document.querySelector("input");
-      file.onchange = function () {
-        // 当用户选择文件后执行此事件
-        console.log(this.files); // 查看FileList对象
-        var reader = new FileReader(); // ① 初始化reader对象
-        reader.readAsText(this.files[0]); // ② 读取文件内容：读取文本
-        // ③ 将读取的内容显示到页面中
-        reader.onload = function () {
-          // 读取成功时触发
-          console.log("成功");
-          console.log("file result:"+this.result); // 将生成的内容显示到页面的div元素中
-        };
-      };
     </script>
     <style>
       *,
@@ -477,4 +464,21 @@
       >_self QQ A标签开的mp4视频
     </a>
   </body>
+  <script>
+
+  var file = document.querySelector("input");
+  file.onchange = function () {
+    // 当用户选择文件后执行此事件
+    console.log(this.files); // 查看FileList对象
+    var reader = new FileReader(); // ① 初始化reader对象
+    reader.readAsText(this.files[0]); // ② 读取文件内容：读取文本
+    // ③ 将读取的内容显示到页面中
+    reader.onload = function () {
+      // 读取成功时触发
+      console.log("成功");
+      console.log("file result:"+this.result); // 将生成的内容显示到页面的div元素中
+      alert(this.result)
+    };
+  };
+</script>
 </html>
